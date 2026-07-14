@@ -10,15 +10,16 @@ function Orders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
+ useEffect(() => {
+  if (!token) {
+    navigate("/login");
+    return;
+  }
 
-    fetchOrders();
-  }, []);
+  fetchOrders();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
   const fetchOrders = async () => {
     try {
       const res = await API.get("/orders", {
