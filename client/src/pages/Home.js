@@ -24,8 +24,10 @@ function Home() {
   ];
 
   useEffect(() => {
-    fetchProducts();
-  }, [page, keyword]);
+  fetchProducts();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [page, keyword]);
 
   const fetchProducts = async () => {
     try {
