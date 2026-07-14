@@ -10,14 +10,16 @@ function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-      return;
-    }
+useEffect(() => {
+  if (!token) {
+    navigate("/login");
+    return;
+  }
 
-    fetchCart();
-  }, []);
+  fetchCart();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   const fetchCart = async () => {
     try {
